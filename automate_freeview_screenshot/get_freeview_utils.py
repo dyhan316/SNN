@@ -23,7 +23,8 @@ class fs_QA():
     def __init__(self, sub_path):
         self.sub_path = sub_path
         self.total_cmd_list = []
-        self.base_cmd = "freeview -v mri/brainmask.mgz -f surf/lh.white:edgecolor=yellow surf/lh.pial:edgecolor=red surf/rh.white:edgecolor=yellow surf/rh.pial:edgecolor=red -layout 1 -cc -nocursor"
+        #self.base_cmd = "freeview -v mri/brainmask.mgz -f surf/lh.white:edgecolor=yellow surf/lh.pial:edgecolor=red surf/rh.white:edgecolor=yellow surf/rh.pial:edgecolor=red -layout 1 -cc -nocursor"
+        self.base_cmd = "freeview -v mri/brainmask.mgz mri/wm.mgz:colormap=heat:opacity=0.3 -f surf/lh.white:edgecolor=yellow surf/lh.pial:edgecolor=red surf/rh.white:edgecolor=yellow surf/rh.pial:edgecolor=red -layout 1 -cc -nocursor"
         self.total_cmd_list.append(self.base_cmd)
 
 
