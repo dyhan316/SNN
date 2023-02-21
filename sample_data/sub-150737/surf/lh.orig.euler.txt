@@ -1,0 +1,6 @@
+ERROR: ld.so: object '/opt/apps/xalt/xalt/lib64/libxalt_init.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+euler # = v-e+f = 2g-2: 58510 - 175548 + 117032 = -6 --> 4 holes
+      F =2V-4:          117032 != 117020-4 (-16)
+      2E=3F:            351096 = 351096 (0)
+
+total defect index = 8

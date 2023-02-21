@@ -1,0 +1,78 @@
+Summary logfile for infant_recon_all
+Fri Nov 25 19:29:00 CST 2022
+--s sub-140989 --outdir /tmp/sub-140989 --age 8
+infant_recon_all -local
+c460-228.stampede2.tacc.utexas.edu
+Linux c460-228.stampede2.tacc.utexas.edu 3.10.0-1160.53.1.el7.x86_64 #1 SMP Fri Jan 14 13:59:45 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+Preprocessing step...
+INPUT FILE /tmp/data/sub-140989/mprage.nii.gz
+mri_nu_correct.mni --i /tmp/data/sub-140989/mprage.nii.gz --o /tmp/sub-140989/work/mprage.nu.nii.gz --n 2
+NU FILE /tmp/sub-140989/work/mprage.nu.nii.gz
+mri_convert --conform-dc /tmp/sub-140989/work/mprage.nu.nii.gz /tmp/sub-140989/work/mprage.nu.conf.nii.gz
+CONFORMED FILE /tmp/sub-140989/work/mprage.nu.conf.nii.gz
+sscnn_skullstrip -i /tmp/sub-140989/work/mprage.nu.conf.nii.gz -o /tmp/sub-140989/work/sscnn -c t1w --gpu -1
+mv /tmp/sub-140989/work/sscnn/sscnn_skullstrip.nii.gz /tmp/sub-140989/work/mprage.nu.conf.mask.nii.gz
+MASK FILE /tmp/sub-140989/work/mprage.nu.conf.mask.nii.gz
+mri_mask /tmp/sub-140989/work/mprage.nu.conf.nii.gz /tmp/sub-140989/work/mprage.nu.conf.mask.nii.gz /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz
+MASKED FILE /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz
+MASKED FILE /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz
+find_neighbors_byAge_extended.csh --age 8 --trages 9 7 6 5 18 12 0 0 3 8 10 10 18 4 2 14 3 16 0 12 0 15 5 17 16 0 --trpool Template1 Template2 Template3 Template4 Template5 Template6 Template7 Template8 Template9 Template10 Template11 Template12 Template13 Template14 Template15 Template16 Template17 Template18 Template19 Template20 Template21 Template22 Template23 Template24 Template25 Template26 --k 4 --outfile /tmp/sub-140989/work/selectedtrainingsubjects.txt --gmwm --gmwmtrpool Template5 Template6 Template8 Template10 Template13 Template18 Template20 Template22 Template26 --gmwmtrages 18 12 0 8 18 16 12 15 0
+reg_aladin -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template10/norm.nii.gz -aff /tmp/sub-140989/work/Template10-2-sub-140989.NIFTYREG.affine.txt -res /tmp/sub-140989/work/Template10-2-sub-140989.NIFTYREG.affine.nii.gz -voff
+reg_f3d -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template10/norm.nii.gz -aff /tmp/sub-140989/work/Template10-2-sub-140989.NIFTYREG.affine.txt -cpp /tmp/sub-140989/work/Template10-2-sub-140989.NIFTYREG.field.nii.gz -res /tmp/sub-140989/work/Template10-2-sub-140989.NIFTYREG.nii.gz
+reg_resample -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template10/manualseg.nii.gz -trans /tmp/sub-140989/work/Template10-2-sub-140989.NIFTYREG.field.nii.gz -res /tmp/sub-140989/work/manseg-Template10-2-sub-140989.NIFTYREG.nii.gz -inter 0
+reg_aladin -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template1/norm.nii.gz -aff /tmp/sub-140989/work/Template1-2-sub-140989.NIFTYREG.affine.txt -res /tmp/sub-140989/work/Template1-2-sub-140989.NIFTYREG.affine.nii.gz -voff
+reg_f3d -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template1/norm.nii.gz -aff /tmp/sub-140989/work/Template1-2-sub-140989.NIFTYREG.affine.txt -cpp /tmp/sub-140989/work/Template1-2-sub-140989.NIFTYREG.field.nii.gz -res /tmp/sub-140989/work/Template1-2-sub-140989.NIFTYREG.nii.gz
+reg_resample -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template1/manualseg.nii.gz -trans /tmp/sub-140989/work/Template1-2-sub-140989.NIFTYREG.field.nii.gz -res /tmp/sub-140989/work/manseg-Template1-2-sub-140989.NIFTYREG.nii.gz -inter 0
+reg_aladin -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template2/norm.nii.gz -aff /tmp/sub-140989/work/Template2-2-sub-140989.NIFTYREG.affine.txt -res /tmp/sub-140989/work/Template2-2-sub-140989.NIFTYREG.affine.nii.gz -voff
+reg_f3d -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template2/norm.nii.gz -aff /tmp/sub-140989/work/Template2-2-sub-140989.NIFTYREG.affine.txt -cpp /tmp/sub-140989/work/Template2-2-sub-140989.NIFTYREG.field.nii.gz -res /tmp/sub-140989/work/Template2-2-sub-140989.NIFTYREG.nii.gz
+reg_resample -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template2/manualseg.nii.gz -trans /tmp/sub-140989/work/Template2-2-sub-140989.NIFTYREG.field.nii.gz -res /tmp/sub-140989/work/manseg-Template2-2-sub-140989.NIFTYREG.nii.gz -inter 0
+reg_aladin -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template11/norm.nii.gz -aff /tmp/sub-140989/work/Template11-2-sub-140989.NIFTYREG.affine.txt -res /tmp/sub-140989/work/Template11-2-sub-140989.NIFTYREG.affine.nii.gz -voff
+reg_f3d -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template11/norm.nii.gz -aff /tmp/sub-140989/work/Template11-2-sub-140989.NIFTYREG.affine.txt -cpp /tmp/sub-140989/work/Template11-2-sub-140989.NIFTYREG.field.nii.gz -res /tmp/sub-140989/work/Template11-2-sub-140989.NIFTYREG.nii.gz
+reg_resample -ref /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -flo /opt/freesurfer-dev/average/CNYBCH/Template11/manualseg.nii.gz -trans /tmp/sub-140989/work/Template11-2-sub-140989.NIFTYREG.field.nii.gz -res /tmp/sub-140989/work/manseg-Template11-2-sub-140989.NIFTYREG.nii.gz -inter 0
+TRAINING SUBJECTS LABELFUSION Template10 Template1 Template2 Template11
+run_label_fusion.csh --subj sub-140989 --regtype NIFTYREG --ts Template10 Template1 Template2 Template11
+mri_binarize --match 2 41 --count /tmp/sub-140989/work/sub-140989-BETA0.3-RHO.70.labels.mrf.count.txt --i /tmp/sub-140989/work/sub-140989-BETA0.3-RHO.70.labels.mrf.nii.gz --noverbose
+cp /tmp/sub-140989/work/sub-140989-BETA0.3-RHO.70.labels.mrf.nii.gz /tmp/sub-140989/work/aseg.nii.gz
+mri_binarize --i /tmp/sub-140989/work/aseg.nii.gz --replaceonly 48 49 --replaceonly 9 10 --o /tmp/sub-140989/work/aseg.nii.gz
+mri_binarize --i /tmp/sub-140989/work/aseg.nii.gz --o /tmp/sub-140989/work/alllabelmask.nii.gz --min 1
+mri_distance_transform /tmp/sub-140989/work/alllabelmask.nii.gz 1 3 3 /tmp/sub-140989/work/alllabelmask.distmap.nii.gz
+cp /tmp/sub-140989/work/aseg.nii.gz /tmp/sub-140989/work/aseg.GMWM.nii.gz
+mri_correct_segmentations /tmp/sub-140989/work/aseg.GMWM.nii.gz /tmp/sub-140989/work/aseg.GMWM.edited.nii.gz
+cp /tmp/sub-140989/work/aseg.GMWM.edited.nii.gz /tmp/sub-140989/work/finalaseg.nii.gz
+mkdir -p /tmp/sub-140989/work//sub-140989/mri/transforms
+mkdir -p /tmp/sub-140989/work//sub-140989/surf
+mkdir -p /tmp/sub-140989/work//sub-140989/label
+mkdir -p /tmp/sub-140989/work//sub-140989/stats
+cp /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz norm.nii.gz
+mri_convert norm.nii.gz norm.mgz
+ln -s norm.nii.gz brain.nii.gz
+ln -s norm.mgz brain.mgz
+ln -s norm.nii.gz brainmask.nii.gz
+ln -s norm.mgz brainmask.mgz
+cp /tmp/sub-140989/work/finalaseg.nii.gz aseg.nii.gz
+mri_convert aseg.nii.gz aseg.mgz
+mri_convert /opt/freesurfer-dev/average/mni305.cor.mgz ./mni305.cor.nii.gz
+reg_aladin -ref ./mni305.cor.nii.gz -flo /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz -aff /tmp/sub-140989/work//sub-140989/mri/transforms/niftyreg_affine.txt -res /tmp/sub-140989/work//sub-140989/mri/transforms/niftyreg_affine.nii.gz -voff
+lta_convert --inniftyreg /tmp/sub-140989/work//sub-140989/mri/transforms/niftyreg_affine.txt --outlta /tmp/sub-140989/work//sub-140989/mri/transforms/niftyreg_affine.lta --outmni /tmp/sub-140989/work//sub-140989/mri/transforms/niftyreg_affine.xfm --src /tmp/sub-140989/work/mprage.nu.conf.masked.nii.gz --trg ./mni305.cor.nii.gz
+rm -f ./mni305.cor.nii.gz
+cp /tmp/sub-140989/work//sub-140989/mri/transforms/niftyreg_affine.xfm /tmp/sub-140989/work//sub-140989/mri/transforms/talairach.auto.xfm
+cp /tmp/sub-140989/work//sub-140989/mri/transforms/talairach.auto.xfm /tmp/sub-140989/work//sub-140989/mri/transforms/talairach.xfm
+mri_binarize --match 2 41 --count /tmp/sub-140989/work//sub-140989/mri/aseg.count.txt --i /tmp/sub-140989/work//sub-140989/mri/aseg.nii.gz --noverbose
+create_wm_surfaces_mprage_subject.csh --s sub-140989
+create_pial_surfaces_mprage_subject.csh --s sub-140989
+cp /tmp/sub-140989/work//sub-140989/mri/aseg.mgz /tmp/sub-140989/work//sub-140989/mri/aseg.presurf.mgz
+mris_volmask --label_left_white 2 --label_left_ribbon 3 --label_right_white 41 --label_right_ribbon 42 --save_ribbon --save_distance sub-140989
+mris_anatomical_stats -th3 -mgz -f /tmp/sub-140989/work//sub-140989/stats/lh.aparc.stats -b -a aparc.annot -c aparc.annot.ctab sub-140989 lh
+mris_anatomical_stats -th3 -mgz -f /tmp/sub-140989/work//sub-140989/stats/rh.aparc.stats -b -a aparc.annot -c aparc.annot.ctab sub-140989 rh
+reg_aladin -ref /opt/freesurfer-dev/average/all_c_robtemplate_affine_mean.05.01.2018.nii.gz -flo mri/norm.nii.gz -aff mri/transforms/sub-140989.2.common.txt -res mri/transforms/sub-140989.2.common.nii.gz -voff
+lta_convert --inniftyreg mri/transforms/sub-140989.2.common.txt --outlta mri/transforms/sub-140989.2.common.lta --outmni mri/transforms/sub-140989.2.common.xfm --src mri/norm.nii.gz --trg /opt/freesurfer-dev/average/all_c_robtemplate_affine_mean.05.01.2018.nii.gz
+mri_segstats --seg mri/aseg.mgz --sum aseg.stats --pv mri/norm.mgz --empty --brainmask mri/brainmask.mgz --brain-vol-from-seg --excludeid 0 --excl-ctxgmwm --supratent --subcortgray --in mri/norm.mgz --in-intensity-name norm --in-intensity-units MR --surf-wm-vol --surf-ctx-vol --totalgray --euler --ctab /opt/freesurfer-dev/ASegStatsLUT.txt --subject sub-140989
+mri_aparc2aseg --s sub-140989 --new-ribbon
+Successfully finished infant_recon_all
+infant_recon_all: The whole process took 12103 seconds
+cp -r /tmp/sub-140989/work/sub-140989/mri /tmp/sub-140989/
+cp -r /tmp/sub-140989/work/sub-140989/surf /tmp/sub-140989/
+cp -r /tmp/sub-140989/work/sub-140989/label /tmp/sub-140989/
+cp -r /tmp/sub-140989/work/sub-140989/stats /tmp/sub-140989/
+mkdir -p /tmp/sub-140989/log
+cp /tmp/sub-140989/work/mri_nu_correct.mni.log /tmp/sub-140989/work/sub-140989_infant_recon_all.2211251929.log /tmp/sub-140989/work/summary.sub-140989_infant_recon_all.2211251929.log /tmp/sub-140989/log/

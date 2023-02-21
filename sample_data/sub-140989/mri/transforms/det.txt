@@ -1,0 +1,4 @@
+
+First transform is mri/transforms/sub-140989.2.common.lta
+--dist: Computing distance type: 5 .
+0.412472

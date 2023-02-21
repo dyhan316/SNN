@@ -1,0 +1,8 @@
+ERROR: ld.so: object '/opt/apps/xalt/xalt/lib64/libxalt_init.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.
+WARNING: the source volume info is not consistent between the info contained
+WARNING: in the surface data (-5.713776,24.306793,17.684601) and that of the transform (-5.713806,24.306778,17.684631).
+euler # = v-e+f = 2g-2: 53172 - 159588 + 106392 = -24 --> 13 holes
+      F =2V-4:          106392 != 106344-4 (-52)
+      2E=3F:            319176 = 319176 (0)
+
+total defect index = 26
