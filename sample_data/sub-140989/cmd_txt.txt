@@ -1,4 +1,4 @@
-freeview -v mri/brainmask.mgz -f surf/lh.white:edgecolor=yellow surf/lh.pial:edgecolor=red surf/rh.white:edgecolor=yellow surf/rh.pial:edgecolor=red -layout 1 -cc -nocursor
+freeview -v mri/brainmask.mgz mri/wm.mgz:colormap=heat:opacity=0.3 -f surf/lh.white:edgecolor=yellow surf/lh.pial:edgecolor=red surf/rh.white:edgecolor=yellow surf/rh.pial:edgecolor=red -layout 1 -cc -nocursor
 -viewport sagittal -slice 50 127 127 -ss  ./img_save/T1_sagittal_050.jpg -noquit
 -viewport axial -slice 127 50 127 -ss  ./img_save/T1_axial_050.jpg -noquit
 -viewport coronal -slice 127 127 50 -ss  ./img_save/T1_coronal_050.jpg -noquit
